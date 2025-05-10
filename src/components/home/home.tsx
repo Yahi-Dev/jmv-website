@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import MediaGallery from "../media/MediaGallery";
 
 export const HomeJMV = () => {
@@ -36,7 +35,7 @@ export const HomeJMV = () => {
       setCurrentPhrase((prev) => (prev + 1) % motivationalPhrases.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [motivationalPhrases.length]);
 
   return (
     <div className="bg-white pt-20 md:pt-24">
@@ -88,7 +87,7 @@ export const HomeJMV = () => {
 
                   {/* Texto principal con color más suave */}
                   <p className="text-xl md:text-2xl text-gray-700 font-medium px-6 leading-relaxed">
-                    "{motivationalPhrases[currentPhrase].text}"
+                    &ldquo;{motivationalPhrases[currentPhrase].text}&rdquo;
                   </p>
 
                   <svg
